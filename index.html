@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Economica&family=Roboto:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/rwd.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="w100 bg-white bb h-hi flex-only">
+    <div class="hd w100 flex-only">
+      <h1><span class="ziee">ziee</span><span class="zi-lib">LIBRARY</span></h1>
+      <a class=""
+        href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
+        target="_blank" rel="noreferrer noopener">Sign Up</a>
+    </div>
+  </header>
+  <main>
+    <section class="wlc-gr p24">
+      <div class="wlc color-white d-flex-2">
+        <h2 class="d-none">""</h2>
+        <p class="ff-1">...welcome to your local library. please add a book to your collection!
+        </p>
+        <button type="button" class="add-btn color-black">Add</button>
+      </div>
+    </section>
+
+    <section class="modal-container bg-white">
+      <div class="modal-content d-flex-2">
+        <div class="modal-header d-flex-2 w100 gp-mb">
+          <button class="modal-close" type="button">
+            <i class="fas fa-times assets-color"></i>
+          </button>
+          <h2 class="sec-text">Add a new Book</h2>
+        </div>
+        <div class="modal-body d-flex-2 w100">
+          <form action="#" class="d-flex-2 w100">
+            <div class="wrapper w100">
+              <div class="form-group w100 bb">
+                <label for="title">
+                  <input type="text" name="title" id="title" maxlength="30" class="form-control w100 hgh"
+                    placeholder="Title" required>
+                </label>
+              </div>
+              <div class="form-group w100 bb">
+                <label for="author" class="">
+                  <input type="text" name="author" id="author" maxlength="30" class="form-control w100 hgh"
+                    placeholder="Author" required>
+                </label>
+              </div>
+              <div class="form-group w100 bb">
+                <label for="pages">
+                  <input type="text" name="pages" id="pages" maxlength="30" class="form-control w100 hgh"
+                    placeholder="Pages" required>
+                </label>
+              </div>
+              <div class="form-group-2 hgh-2 w100">
+                <div class="hgh-i">
+                  <input type="checkbox" name="read" id="read" class="form-control hgh-ii">
+                </div>
+                <label for="read" class="">Click if read!</label>
+              </div>
+            </div>
+            <div class="form-group w100">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="book-sec">
+      <div class="grid">
+        <ul class="book-shelve">
+          <li class="book bg-white d-flex-2">
+            <h2 class="ff-2 color-primary mb-4">"Mr Bones in London"</h2>
+            <p class="ff-2 mb-4">Danny Higgs</p>
+            <p class="ff-2 mb-16">2000</p>
+            <div class="hgh-iii mb-4 mr-4">
+              <i class="fas fa-check green"></i>
+            </div>
+            <div class="ed-del-wr d-flex-2 w100">
+              <button type="button" class="b-btn w100 assets-color bg-pri-btn" title="edit"><i
+                  class="fas fa-edit"></i></button>
+              <button type="button" class="b-btn w100 assets-color bg-pri-btn" title="delete"><i
+                  class="fas fa-trash-alt"></i></button>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+
+</body>
+
+</html>
