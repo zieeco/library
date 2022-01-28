@@ -1,5 +1,5 @@
 import Book from './book.js';
-
+import displayBooks from './display.js';
 document.getElementById('add').addEventListener('click', () => {
   document.getElementById('modal').classList.remove('hidden');
 });
@@ -8,7 +8,6 @@ document.querySelector('.modal-close').addEventListener('click', () => {
   document.getElementById('modal').classList.add('hidden');
 });
 
-const bookList = document.getElementById('book-list');
 const submitBtn = document.getElementById('modal-submit');
 let myLibrary = [];
 
@@ -24,34 +23,6 @@ const clearBookForm = () => {
   document.getElementById('author').value = '';
   document.getElementById('pages').value = '';
   document.getElementById('read').checked = false;
-};
-
-const displayBooks = () => {
-  if (localStorage.getItem('myLibrary') === null) {
-    myLibrary = [];
-  } else {
-    myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
-  }
-  let display = '';
-  myLibrary.forEach((book, index) => {
-    display += `<li class="book bg-white d-flex-2" id="${index}">
-    <div class='d-flex-2 gap-4 w100'>
-      <h2 class="ff-2 color-primary mb-4">
-      <q class="ff-2">${book.title}</q></h2>
-      <p class="ff-2 mb-4">${book.author}</p>
-      <p class="ff-2 mb-16">${book.pages}</p>
-    </div>
-    <div class='ed-del-wr d-flex-2 w100'>
-      <button id='${index}' class='btn btn-primary w100 assets-color bg-pri-btn readBtn' type='button'>
-        ${book.read ? '<i class="fas fa-check green"></i>' : 'Not read yet!'}
-      </button>
-      <button id='${index}' class='b-btn btn-primary w100 assets-color bg-pri-btn deleteBtn' type='button'>
-        <i class='fas fa-trash-alt'></i>
-      </button>
-    </div>
-    </li>`;
-  });
-  bookList.innerHTML = display;
 };
 
 const saveToLocalStorage = (book) => {
@@ -95,7 +66,7 @@ submitBtn.addEventListener('click', (e) => {
     );
     addBookToMyLibrary(book);
     clearBookForm();
-    displayBooks();
+    displayBooks(book);
     document.getElementById('modal').classList.add('hidden');
   }
 });
