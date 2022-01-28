@@ -1,3 +1,5 @@
+import Book from './book.js';
+
 document.getElementById('add').addEventListener('click', () => {
   document.getElementById('modal').classList.remove('hidden');
 });
@@ -24,15 +26,6 @@ const clearBookForm = () => {
   document.getElementById('read').checked = false;
 };
 
-class Book {
-  constructor(title, author, pages, read = false) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-  }
-}
-
 const displayBooks = () => {
   if (localStorage.getItem('myLibrary') === null) {
     myLibrary = [];
@@ -50,8 +43,7 @@ const displayBooks = () => {
     </div>
     <div class='ed-del-wr d-flex-2 w100'>
       <button id='${index}' class='btn btn-primary w100 assets-color bg-pri-btn readBtn' type='button'>
-        ${book.read ? '<i class="fas fa-check green"></i>'
-    : 'Not read yet!'}
+        ${book.read ? '<i class="fas fa-check green"></i>' : 'Not read yet!'}
       </button>
       <button id='${index}' class='b-btn btn-primary w100 assets-color bg-pri-btn deleteBtn' type='button'>
         <i class='fas fa-trash-alt'></i>
@@ -84,13 +76,23 @@ submitBtn.addEventListener('click', (e) => {
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').checked;
-  const capitalizeEachLetter = (string) => string.toLowerCase().split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
+  const capitalizeEachLetter = (string) =>
+    string
+      .toLowerCase()
+      .split(' ')
+      .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`)
+      .join(' ');
   if (title === '' || author === '') {
     printErrorMsg('Please fill all the fields');
-  } else if ((pages === '') || (pages <= 0)) {
+  } else if (pages === '' || pages <= 0) {
     printErrorMsg('Please enter a valid number for pages');
   } else {
-    const book = new Book(capitalizeEachLetter(title), capitalizeEachLetter(author), pages, read);
+    const book = new Book(
+      capitalizeEachLetter(title),
+      capitalizeEachLetter(author),
+      pages,
+      read
+    );
     addBookToMyLibrary(book);
     clearBookForm();
     displayBooks();
